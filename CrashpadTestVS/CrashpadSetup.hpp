@@ -1,0 +1,4 @@
+namespace backtrace
+{
+	bool initializeCrashpad();
+}
