@@ -25,29 +25,14 @@ namespace backtrace
 		std::map<std::string, std::string> annotations;
 		std::vector<std::string> arguments;
 
-		/*
-		 * ENSURE THIS VALUE IS CORRECT.
-		 *
-		 * This is the directory you will use to store and queue crash data.
-		 */
 		std::wstring db_path(L"T:\\CrashpadDumps\\");
-
-		/*
-		 * ENSURE THIS VALUE IS CORRECT.
-		 *
-		 * Crashpad has the ability to support crashes both in-process and out-of-process.
-		 * The out-of-process handler is significantly more robust than traditional in-process
-		 * crash handlers. This path may be relative.
-		 */
 		std::wstring handler_path(L"C:\\Application\\crashpad\\crashpad-2021-07-16-release-x64-fd70c47fc249659db8a7345b00026b14a3963d6d\\bin\\crashpad_handler.exe");
-		/*
-		 * YOU MUST CHANGE THIS VALUE.
-		 *
-		 * This should point to your server dump submission port (labeled as "http/writer"
-		 * in the listener configuration pane. Preferrably, the SSL enabled port should
-		 * be used. If Backtrace is hosting your instance, the default port is 6098.
-		 */
-		std::string url("https://submit.backtrace.io/d11-test/8883b5799a7adec6c45a79c51caf89d8931127f02b2d230ccdac1d14732d51b9/minidump");
+		std::string url("https://submit.backtrace.io/d11-test/8883b5799a7adec6c45a79c51caf89d8931127f02b2d230ccdac1d14732d51b9/minidump");
+
+		annotations["token"] = "8883b5799a7adec6c45a79c51caf89d8931127f02b2d230ccdac1d14732d51b9";
+		annotations["format"] = "minidump";
+		annotations["version"] = "11.11";
+		
 		/*
 		 * REMOVE THIS FOR ACTUAL BUILD.
 		 *

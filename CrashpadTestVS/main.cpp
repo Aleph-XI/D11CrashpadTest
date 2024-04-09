@@ -9,9 +9,11 @@ int main(int argc, const char** argv)
 
 	std::cout << backtrace::initializeCrashpad() << std::endl;
 
+	std::cout << "Line: " << __LINE__ << " of file: " << __FILE__ << std::endl;
+
 	std::abort();
 
 	std::cout << "Goodbye World" << std::endl;
 
-	return 0;
+	return 1;
 }
